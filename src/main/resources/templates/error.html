@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+</head>
+<body>
+<h1>An error has occurred</h1>
+<h2 th:text="|${error} - ${message}|"></h2> <!-- Displays error and message -->
+<div>
+    <img th:src="@{/404.png}" alt="">
+</div>
+<p>
+    There seems to be an error with the following request:
+    <span th:text="${path}"></span> <!-- Displays the URL path where the error occurred -->
+</p>
+<p th:if="${exception}">
+    Exception: <span th:text="${exception}"></span>
+</p>
+<p th:if="${trace}">
+<pre th:text="${trace}"></pre>
+</body>
+</html>
